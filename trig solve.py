@@ -9,16 +9,16 @@ def derivative(x):
 def ext(n):
     x0=(n*m.pi/a)+(pow(-1,n)*a1)-a2 if abs(a1)!=m.pi/(2*a) else (((4*n+1)*m.pi/2 if a1<0 else (4*n+3)*m.pi/2)-a2)
     return x0
-def solve(pole,d,jump=8):
+def solve(pole,d,jump=10):
     x=pole
     while abs(func(x))>tol: 
         a=x
         x+=(jump*d)
-        if func(x)*func(a)<0 and abs(func(x))>tol:
-            jump/=2
+        if func(x)*func(a)<0:
+            if func(x)>=0 and jump<tol:
+                break
+            jump/=10
             d*=-1
-        if func(x)>=0 and func(x)<tol:
-            break
     return x
 def root(g):
     n=0
