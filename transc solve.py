@@ -6,15 +6,15 @@ def derivative(x):
     return (A*a*math.exp(a*x))+B
 def solve(pole,d):
     x=pole
-    jump=8
-    while abs(func(x))>tol: 
+    jump=10
+    while True: 
         a=x
         x+=(jump*d)
-        if func(x)*func(a)<0 and abs(func(x))>tol:
-            jump/=2
+        if func(x)*func(a)<=0:
+            if func(x)>=0 and jump<tol:
+                break
+            jump/=10
             d*=-1
-        if func(x)>=0 and func(x)<tol:
-            break
     return x
 print("Solving Transcendental equation of form A(e^ax)+ Bx + C = 0")
 print("Enter A, a, B and C values:")
