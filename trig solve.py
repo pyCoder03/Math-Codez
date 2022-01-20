@@ -14,8 +14,8 @@ def solve(pole,d,jump=10):
     while True: 
         a=x
         x+=(jump*d)
-        if func(x)*func(a)<0:
-            if func(x)>=0 and jump<tol:
+        if func(x)*func(a)<=0:
+            if func(x)==0 or (func>0 and jump<tol):
                 break
             jump/=10
             d*=-1
