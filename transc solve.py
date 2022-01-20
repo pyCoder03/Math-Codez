@@ -11,7 +11,7 @@ def solve(pole,d):
         a=x
         x+=(jump*d)
         if func(x)*func(a)<=0:
-            if func(x)>=0 and jump<tol:
+            if func(x)==0 or (func(x)>0 and jump<tol):
                 break
             jump/=10
             d*=-1
