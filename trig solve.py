@@ -11,7 +11,7 @@ def ext(n):
     return x0
 def solve(pole,d,jump=10):
     x=pole
-    while abs(func(x))>tol: 
+    while True: 
         a=x
         x+=(jump*d)
         if func(x)*func(a)<0:
